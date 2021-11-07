@@ -5,6 +5,7 @@ const $location = document.querySelector('#data');
  * Muestra los datos del país del cliente
  * @param {object} data Objeto de datos a mostrar
  * @param {string} continente Continente
+ * @param {string} ip IP
  */
 export function showData(data, continente, ip) {
     let tableTemplate = '';
