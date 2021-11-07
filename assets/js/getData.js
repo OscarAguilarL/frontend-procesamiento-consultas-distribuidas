@@ -2,13 +2,14 @@ const DEFAULT_URL = 'http://api-geolocation.oscaraguilar-dev.com/';
 
 /**
  * Consulta la API deseada y retorna la informacion del país del cliente.
- * @param {string} url url que se va a consultar
+ * @param {string} apiUrl url que se va a consultar
  * @returns Object
  */
-export async function getData(url = DEFAULT_URL) {
+export async function getData(apiUrl = DEFAULT_URL) {
+    console.log({ apiUrl });
     try {
         // Consultar la API y convertir la respuesta a JSON
-        const resp = await fetch(url);
+        const resp = await fetch(apiUrl);
         const body = await resp.json();
 
         // Si la consulta es exitosa retorna la respuesta
