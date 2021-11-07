@@ -14,5 +14,10 @@ export async function getContinent() {
     const { geoplugin_timezone } = await geoPluginResp.json();
 
     // America/Mexico_City
-    return geoplugin_timezone.split('/')[0];
+    const continente = geoplugin_timezone.split('/')[0];
+
+    return {
+        continente,
+        ip,
+    };
 }

@@ -1,16 +1,16 @@
 const $tableBody = document.querySelector('#districts');
-const $location = document.querySelector('#location');
+const $location = document.querySelector('#data');
 
 /**
  * Muestra los datos del país del cliente
  * @param {object} data Objeto de datos a mostrar
  * @param {string} continente Continente
  */
-export function showData(data, continente) {
-    let template = '';
+export function showData(data, continente, ip) {
+    let tableTemplate = '';
 
     data.citys.forEach((district, index) => {
-        template += `
+        tableTemplate += `
         <tr>
             <th scope="row">${index + 1}</th>
             <td>${district}</td>
@@ -18,6 +18,12 @@ export function showData(data, continente) {
     `;
     });
 
-    $location.innerText = `${data.country_name} - ${continente}`;
-    $tableBody.innerHTML = template;
+    const dataTemplate = `
+    <h3 id="location">País: <small>${data.country_name}</small></h3>
+    <h3>IP: <small>${ip}</small></h3>
+    <h3>Servidor: <small>${continente}</small></h3>
+    `;
+
+    $location.innerHTML = dataTemplate;
+    $tableBody.innerHTML = tableTemplate;
 }
