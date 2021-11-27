@@ -11,7 +11,7 @@ export async function getContinent() {
     // Consulta a la api de geoPlugin para obtener la zona horaria del cliente
     // y posteriormente el continente
     const geoPluginResp = await fetch(`http://geoplugin.net/json.gp?ip=${ip}`);
-    const { geoplugin_timezone } = await geoPluginResp.json();
+    const { geoplugin_timezone, geoplugin_countryName } = await geoPluginResp.json();
 
     // America/Mexico_City
     const continente = geoplugin_timezone.split('/')[0];
@@ -19,5 +19,6 @@ export async function getContinent() {
     return {
         continente,
         ip,
+        geoplugin_countryName,
     };
 }

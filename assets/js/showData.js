@@ -7,20 +7,22 @@ const $location = document.querySelector('#data');
  * @param {string} continente Continente
  * @param {string} ip IP
  */
-export function showData(data, continente, ip) {
+export function showData(data, continente, ip, country_name) {
     let tableTemplate = '';
 
-    data.citys.forEach((district, index) => {
+    data.forEach((product) => {
         tableTemplate += `
         <tr>
-            <th scope="row">${index + 1}</th>
-            <td>${district}</td>
+            <th scope="row">${product.product_id}</th>
+            <td>${product.product_name}</td>
+            <td>${product.model_year}</td>
+            <td>$${product.list_price}</td>
         </tr>
     `;
     });
 
     const dataTemplate = `
-    <h3 id="location">País: <small>${data.country_name}</small></h3>
+    <h3 id="location">País: <small>${country_name}</small></h3>
     <h3>IP: <small>${ip}</small></h3>
     <h3>Servidor: <small>${continente}</small></h3>
     `;
